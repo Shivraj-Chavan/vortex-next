@@ -107,13 +107,13 @@ export default function AdminUI({children }){
           </div>
 
           {/* Welcome Card */}
-          <div className="p-4">
+          {/* <div className="p-4">
             <div className="p-4 bg-gradient-to-br from-purple-500 to-blue-500 rounded-xl text-white">
               <p className="text-sm opacity-90 mb-1">Welcome back!</p>
               <p className="text-xl font-bold">John Doe</p>
               <p className="text-xs opacity-75 mt-2">Last login: Today at 9:30 AM</p>
             </div>
-          </div>
+          </div> */}
 
           {/* Navigation Menu */}
           <nav className="flex-1 px-4 space-y-1">

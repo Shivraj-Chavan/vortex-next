@@ -385,12 +385,12 @@ export default function BlogsPage() {
 
 {selectedBlog && (
   <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/50 backdrop-blur-sm px-4">
-    <div className="bg-white dark:bg-gray-900 w-full max-w-3xl rounded-2xl shadow-xl overflow-hidden relative">
+    <div className="bg-white dark:bg-gray-900 w-full max-w-3xl rounded-2xl shadow-xl max-h-[90vh] overflow-y-auto relative">
 
       {/* Close Button */}
       <button
         onClick={() => setSelectedBlog(null)}
-        className="absolute top-4 right-4 text-gray-500 hover:text-red-500"
+        className="absolute top-4 right-4 text-gray-500 hover:text-gray-200 font-extrabold"
       >
         ✕
       </button>
