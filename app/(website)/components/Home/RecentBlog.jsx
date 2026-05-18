@@ -47,7 +47,6 @@ const RecentBlog = () => {
 
         setRecentPosts(formatted);
       } catch (err) {
-        console.error("RecentBlog: Failed to load blogs:", err);
         setError(err.message);
         setRecentPosts([]);
       } finally {
@@ -60,11 +59,9 @@ const RecentBlog = () => {
 
   if (loading) {
     return (
-      <div className="relative bg-transparent text-white py-20">
-        <div className="max-w-7xl mx-auto px-6 text-center">
-          <div className="inline-block animate-spin rounded-full h-12 w-12 border-4 border-white/20 border-t-white/80 mb-4"></div>
-          <p className="text-white/70">Loading recent blogs...</p>
-        </div>
+      <div className="py-20 bg-white text-center">
+        <div className="animate-spin h-12 w-12 border-4 border-gray-200 border-t-indigo-600 rounded-full mx-auto mb-4"></div>
+        <p className="text-gray-600">Loading recent blogs...</p>
       </div>
     );
   }
@@ -72,97 +69,87 @@ const RecentBlog = () => {
   if (recentPosts.length === 0) return null;
 
   return (
-    <section
-      id="recent-blog"
-      className="relative bg-transparent text-white py-20"
-    >
-      {/* Glow Effects */}
-      <div className="pointer-events-none absolute top-0 right-1/4 w-[500px] h-[500px] bg-indigo-500/15 rounded-full blur-[140px]" />
-      <div className="pointer-events-none absolute bottom-0 left-1/4 w-[500px] h-[500px] bg-blue-500/10 rounded-full blur-[140px]" />
-
-      <div className="relative max-w-7xl mx-auto px-6 mt-15">
+    <section id="recent-blog" className="py-20 bg-white">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
         {/* Header */}
-        <div className="text-center mb-14">
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-4">
-            RECENT BLOG POSTS
+        <div className="text-center mb-14 pt-10">
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-black mb-4">
+            Recent Blog Posts
           </h2>
-          <div className="w-24 h-1 bg-gradient-to-r from-indigo-600 to-blue-600 mx-auto mb-6" />
-          <p className="text-gray-300 max-w-2xl mx-auto text-sm sm:text-base leading-relaxed">
-            Welcome to our Blog, your ultimate source for everything related
-            to web development, technology, and digital innovation.
+
+          <div className="w-24 h-1 bg-indigo-600 mx-auto mb-6" />
+
+          <p className="text-gray-600 max-w-2xl mx-auto text-sm sm:text-base">
+            Insights on web development, technology, and digital innovation.
           </p>
         </div>
 
-        {/* Blog Grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+        {/* Grid */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
+
           {recentPosts.map((post) => (
             <div
               key={post.id}
-              className="rounded-3xl overflow-hidden border border-white/10 bg-white/5 backdrop-blur-xl shadow-lg hover:shadow-2xl hover:-translate-y-1 transition-all duration-300"
+              className="bg-white border border-gray-200 rounded-2xl overflow-hidden shadow-sm hover:shadow-lg transition-all duration-300 hover:-translate-y-1"
             >
               {/* Image */}
-              <div className="relative h-60 overflow-hidden">
+              <div className="relative h-56 overflow-hidden">
                 <img
                   src={post.image}
                   alt={post.title}
-                  className="w-full h-full object-cover transition-transform duration-500 hover:scale-110"
+                  className="w-full h-full object-cover hover:scale-110 transition-transform duration-500"
                   onError={(e) => {
-                    e.target.onerror = null;
                     e.target.src = FALLBACK_IMAGE;
                   }}
                 />
 
-                {/* Date */}
-                <div className="absolute top-4 right-4 bg-indigo-600 text-white px-4 py-2 rounded-xl text-xs font-semibold shadow-lg">
+                <div className="absolute top-4 right-4 bg-indigo-600 text-white px-3 py-1 rounded-lg text-xs font-semibold">
                   {post.date.toUpperCase()}
                 </div>
 
-                {/* Category */}
-                <div className="absolute top-4 left-4 bg-white/90 text-gray-900 px-4 py-2 rounded-xl text-xs font-semibold shadow-lg">
+                <div className="absolute top-4 left-4 bg-white text-gray-800 px-3 py-1 rounded-lg text-xs font-semibold shadow">
                   {post.category}
                 </div>
               </div>
 
               {/* Content */}
-              <div className="p-6">
-                <h3 className="text-lg sm:text-xl font-bold mb-3 line-clamp-2 hover:text-indigo-400 transition-colors">
+              <div className="p-5 sm:p-6">
+                <h3 className="text-lg sm:text-xl font-bold text-black mb-3 line-clamp-2 hover:text-indigo-600 transition">
                   {post.title}
                 </h3>
 
-                <div className="flex items-center gap-4 text-sm text-gray-400 mb-4">
-                  <span className="flex items-center gap-1">
-                    👤 {post.author}
-                  </span>
-                  <span className="flex items-center gap-1">
-                    📂 {post.category}
-                  </span>
+                <div className="flex flex-wrap gap-3 text-sm text-gray-500 mb-4">
+                  <span>👤 {post.author}</span>
+                  <span>📂 {post.category}</span>
                 </div>
 
-                <p className="text-gray-300 mb-5 line-clamp-2 text-sm leading-relaxed">
+                <p className="text-gray-600 text-sm leading-relaxed mb-5 line-clamp-2">
                   {post.excerpt}
                 </p>
 
                 <Link
                   href="/blog"
-                  className="inline-flex items-center gap-2 text-indigo-400 font-semibold hover:gap-3 transition-all"
+                  className="inline-flex items-center text-indigo-600 font-semibold hover:gap-2 transition-all"
                 >
                   Read More →
                 </Link>
               </div>
             </div>
           ))}
+
         </div>
 
         {/* Button */}
-        <div className="text-center mt-14">
+        <div className="text-center mt-14 pb-10">
           <Link
             href="/blog"
-            className="inline-block px-8 py-3 rounded-xl font-semibold bg-gradient-to-r from-indigo-600 to-blue-600 text-white hover:scale-105 transition-all shadow-lg"
+            className="inline-block px-8 py-3 rounded-xl font-semibold bg-indigo-600 text-white hover:bg-indigo-700 transition shadow"
           >
             View All Blog Posts
           </Link>
         </div>
+
       </div>
     </section>
   );

@@ -168,7 +168,7 @@ export default function BlogPage() {
       <button
         onClick={() => goToPage(currentPage - 1)}
         disabled={currentPage === 1}
-        className="h-10 w-10 rounded-xl border border-white/10 bg-white/5 text-white/80 hover:bg-white/10 disabled:opacity-40 disabled:hover:bg-white/5 transition"
+        className="h-10 w-10 rounded-xl border border-white/10 bg-white/5 text-black/80 hover:bg-white/10 disabled:opacity-40 disabled:hover:bg-white/5 transition"
       >‹</button>
 
       {Array.from({ length: Math.min(5, totalPages) }, (_, i) => i + 1).map((p) => (
@@ -177,8 +177,8 @@ export default function BlogPage() {
           onClick={() => goToPage(p)}
           className={`h-10 w-10 rounded-xl border transition ${
             currentPage === p
-              ? "border-indigo-400/60 bg-indigo-500/20 text-white"
-              : "border-white/10 bg-white/5 text-white/80 hover:bg-white/10"
+              ? "border-indigo-400/60 bg-indigo-500/20 text-black"
+              : "border-white/10 bg-white/5 text-black/80 hover:bg-black/10"
           }`}
         >{p}</button>
       ))}
@@ -190,8 +190,8 @@ export default function BlogPage() {
             onClick={() => goToPage(totalPages)}
             className={`h-10 w-10 rounded-xl border transition ${
               currentPage === totalPages
-                ? "border-indigo-400/60 bg-indigo-500/20 text-white"
-                : "border-white/10 bg-white/5 text-white/80 hover:bg-white/10"
+                ? "border-indigo-400/60 bg-indigo-500/20 text-black"
+                : "border-white/10 bg-white/5 text-black/80 hover:bg-white/10"
             }`}
           >{totalPages}</button>
         </>
@@ -200,7 +200,7 @@ export default function BlogPage() {
       <button
         onClick={() => goToPage(currentPage + 1)}
         disabled={currentPage === totalPages || totalPages === 0}
-        className="h-10 w-10 rounded-xl border border-white/10 bg-white/5 text-white/80 hover:bg-white/10 disabled:opacity-40 disabled:hover:bg-white/5 transition"
+        className="h-10 w-10 rounded-xl border border-white/10 bg-white/5 text-black/80 hover:bg-white/10 disabled:opacity-40 disabled:hover:bg-white/5 transition"
       >›</button>
     </div>
   );
@@ -210,8 +210,8 @@ export default function BlogPage() {
       <div className="min-h-screen pt-[88px] bg-[#0b0f1a] flex items-center justify-center">
         <div className="text-center">
           <div className="inline-block animate-spin rounded-full h-12 w-12 border-4 border-white/20 border-t-white/80 mb-4"></div>
-          <p className="text-white/70 text-lg">Loading blogs...</p>
-          <p className="text-white/50 text-sm mt-2">Connecting to server...</p>
+          <p className="text-black/70 text-lg">Loading blogs...</p>
+          <p className="text-black/50 text-sm mt-2">Connecting to server...</p>
         </div>
       </div>
     );
@@ -222,11 +222,11 @@ export default function BlogPage() {
       <div className="min-h-screen pt-[88px] bg-[#0b0f1a] flex items-center justify-center">
         <div className="text-center max-w-md mx-auto px-4">
           <div className="text-red-400 text-6xl mb-4">⚠️</div>
-          <h2 className="text-2xl font-bold text-white mb-2">Error Loading Blogs</h2>
+          <h2 className="text-2xl font-bold text-black mb-2">Error Loading Blogs</h2>
           <p className="text-red-400 mb-6">{error}</p>
           <button
             onClick={handleRetry}
-            className="px-6 py-3 bg-gradient-to-r from-indigo-600 to-blue-600 text-white rounded-lg hover:shadow-lg transition-all w-full"
+            className="px-6 py-3 bg-gradient-to-r from-indigo-600 to-blue-600 text-black rounded-lg hover:shadow-lg transition-all w-full"
           >
             Retry
           </button>
@@ -239,12 +239,12 @@ export default function BlogPage() {
     return (
       <div className="min-h-screen pt-[88px] bg-[#0b0f1a] flex items-center justify-center">
         <div className="text-center max-w-md mx-auto px-4">
-          <div className="text-white/40 text-6xl mb-4">📝</div>
-          <h2 className="text-2xl font-bold text-white mb-2">No Blogs Found</h2>
-          <p className="text-white/60 mb-6">There are no blog posts available at the moment.</p>
+          <div className="text-black/40 text-6xl mb-4">📝</div>
+          <h2 className="text-2xl font-bold text-black mb-2">No Blogs Found</h2>
+          <p className="text-black/60 mb-6">There are no blog posts available at the moment.</p>
           <button
             onClick={handleRetry}
-            className="px-6 py-3 bg-gradient-to-r from-indigo-600 to-blue-600 text-white rounded-lg hover:shadow-lg transition-all"
+            className="px-6 py-3 bg-gradient-to-r from-indigo-600 to-blue-600 text-black rounded-lg hover:shadow-lg transition-all"
           >
             Refresh
           </button>
@@ -254,34 +254,32 @@ export default function BlogPage() {
   }
 
   return (
-    <div className="min-h-screen transition-colors duration-300 pt-[88px] relative overflow-hidden bg-[#0b0f1a] bg-[linear-gradient(to_right,#ffffff0a_1px,transparent_1px),linear-gradient(to_bottom,#ffffff0a_1px,transparent_1px)] bg-[size:24px_24px]">
-      <div className="pointer-events-none absolute top-0 right-1/4 w-96 h-96 bg-gradient-to-br from-indigo-500/20 to-purple-500/20 rounded-full blur-3xl" />
-      <div className="pointer-events-none absolute -bottom-20 left-1/4 w-96 h-96 bg-gradient-to-br from-blue-500/15 to-indigo-500/10 rounded-full blur-3xl" />
+    <div className="min-h-screen pt-[88px] bg-[#F6F8FC] relative overflow-hidden">
 
-      <div className="relative mx-auto w-full max-w-7xl px-4 sm:px-6 lg:px-8 py-10 sm:py-14">
+      <div className="relative mx-auto max-w-7xl px-4 py-10">
         {/* Breadcrumb */}
-        <div className="text-xs sm:text-sm text-white/70 mb-6">
-          <Link href="/" className="hover:text-white">Home</Link>
+        <div className="text-xs sm:text-sm text-black/70 mb-6">
+          <Link href="/" className="hover:text-black">Home</Link>
           <span className="mx-2">/</span>
           {selectedPost ? (
             <>
-              <button onClick={handleBackToList} className="hover:text-white underline-offset-4 hover:underline">
+              <button onClick={handleBackToList} className="hover:text-black underline-offset-4 hover:underline">
                 Blog
               </button>
               <span className="mx-2">/</span>
-              <span className="text-white/90">
+              <span className="text-black">
                 {selectedPost.title.length > 32 ? selectedPost.title.slice(0, 32) + "..." : selectedPost.title}
               </span>
             </>
           ) : (
-            <span className="text-white/90">Blog</span>
+            <span className="text-balck/90">Blog</span>
           )}
         </div>
 
         {!selectedPost && (
           <div className="mb-8 sm:mb-10 text-center">
-            <h1 className="text-3xl sm:text-4xl font-extrabold text-white">Blog</h1>
-            <p className="mt-3 text-white/70 max-w-2xl mx-auto text-sm sm:text-base">
+            <h1 className="text-3xl sm:text-4xl font-extrabold text-black">Blog</h1>
+            <p className="mt-3 text-black/70 max-w-2xl mx-auto text-sm sm:text-base">
               Tips, insights, and updates about web development, design, and digital growth.
             </p>
           </div>
@@ -302,33 +300,37 @@ export default function BlogPage() {
                 </div>
 
                 <div className="p-5 sm:p-8">
-                  <div className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-4 py-1.5 text-xs text-white/80">
+                  <div className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-4 py-1.5 text-xs text-black/80">
                     <span className="h-2 w-2 rounded-full bg-indigo-400" />
                     {selectedPost.category}
                   </div>
 
-                  <h1 className="mt-4 text-xl sm:text-3xl font-bold text-white leading-tight">
+                  <h1 className="mt-4 text-xl sm:text-3xl font-bold text-black leading-tight">
                     {selectedPost.title}
                   </h1>
 
-                  <div className="mt-4 flex flex-wrap gap-x-5 gap-y-2 text-xs sm:text-sm text-white/70">
+                  <div className="mt-4 flex flex-wrap gap-x-5 gap-y-2 text-xs sm:text-sm text-black/70">
                     <span>👤 {selectedPost.author}</span>
                     <span>📅 {selectedPost.date}</span>
                     <span>💬 {selectedPost.comments} Comments</span>
                   </div>
 
-                  <div className="mt-6 space-y-4 text-white/80 leading-relaxed text-sm sm:text-base">
+                  {/* <div className="mt-6 space-y-4 text-white/80 leading-relaxed text-sm sm:text-base">
                     <p>{selectedPost.content}</p>
+                  </div> */}
+
+                  <div className="prose max-w-none text-sm text-black">
+                    <div dangerouslySetInnerHTML={{ __html: selectedPost.content }} />
                   </div>
 
                   {selectedPost.tags && selectedPost.tags.length > 0 && (
                     <div className="mt-8 flex flex-wrap items-center gap-2">
-                      <span className="text-white font-semibold text-sm">Tags:</span>
+                      <span className="text-black font-semibold text-sm">Tags:</span>
                       {selectedPost.tags.map((tag) => (
                         <button
                           key={tag}
                           onClick={() => handleTagClick(tag)}
-                          className="px-3 py-1 rounded-full text-sm border border-white/10 bg-white/5 text-white/80 hover:bg-white/10 transition"
+                          className="px-3 py-1 rounded-full text-sm border border-white/10 bg-white/5 text-black hover:bg-white/10 transition"
                         >
                           {tag}
                         </button>
@@ -352,9 +354,9 @@ export default function BlogPage() {
                       value={searchQuery}
                       onChange={(e) => { setSearchQuery(e.target.value); setCurrentPage(1); }}
                       placeholder="Search posts..."
-                      className="w-full rounded-2xl border border-white/10 bg-white/5 backdrop-blur px-4 py-3 text-white placeholder:text-white/50 outline-none focus:border-indigo-400/60"
+                      className="w-full rounded-2xl border border-white/10 bg-white/5 backdrop-blur px-4 py-3 text-black placeholder:text-black/50 outline-none border border-gray-100 shadow focus:border-indigo-400/60"
                     />
-                    <span className="absolute right-4 top-1/2 -translate-y-1/2 text-white/60">🔍</span>
+                    <span className="absolute right-4 top-1/2 -translate-y-1/2 text-black/60">🔍</span>
                   </div>
 
                   <div className="flex items-center gap-2 overflow-x-auto pb-2 -mx-1 px-1">
@@ -362,8 +364,8 @@ export default function BlogPage() {
                       onClick={() => handleCategory("all")}
                       className={`whitespace-nowrap px-4 py-2 rounded-full text-sm border transition ${
                         selectedCategory === "all"
-                          ? "border-indigo-400/60 bg-indigo-500/20 text-white"
-                          : "border-white/10 bg-white/5 text-white/70 hover:bg-white/10"
+                          ? "border-indigo-400/60 bg-indigo-500/20 text-black"
+                          : "border-white/10 bg-white/5 text-black/70 hover:bg-white/10"
                       }`}
                     >All</button>
 
@@ -373,8 +375,8 @@ export default function BlogPage() {
                         onClick={() => handleCategory(c.name)}
                         className={`whitespace-nowrap px-4 py-2 rounded-full text-sm border transition ${
                           selectedCategory === c.name
-                            ? "border-indigo-400/60 bg-indigo-500/20 text-white"
-                            : "border-white/10 bg-white/5 text-white/70 hover:bg-white/10"
+                            ? "border-indigo-400/60 bg-indigo-500/20 text-black"
+                            : "border-white/10 bg-white/5 text-black/70 hover:bg-white/10"
                         }`}
                       >{c.name}</button>
                     ))}
@@ -402,15 +404,15 @@ export default function BlogPage() {
                         </div>
 
                         <div className="p-5 sm:p-6">
-                          <h2 className="text-base sm:text-lg font-bold text-white line-clamp-2">
+                          <h2 className="text-base sm:text-lg font-bold text-black line-clamp-2">
                             {post.title}
                           </h2>
-                          <div className="mt-3 flex flex-wrap gap-x-4 gap-y-2 text-xs text-white/70">
+                          <div className="mt-3 flex flex-wrap gap-x-4 gap-y-2 text-xs text-black/70">
                             <span>👤 {post.author}</span>
                             <span>📅 {post.date}</span>
                             <span>💬 {post.comments}</span>
                           </div>
-                          <p className="mt-4 text-white/75 line-clamp-3 leading-relaxed text-sm">
+                          <p className="mt-4 text-black line-clamp-3 leading-relaxed text-sm">
                             {post.excerpt}
                           </p>
                           <button
@@ -424,7 +426,7 @@ export default function BlogPage() {
                     ))
                   ) : (
                     <div className="col-span-2 text-center py-14">
-                      <p className="text-white/70 text-base">No blog posts found matching your search.</p>
+                      <p className="text-black text-base">No blog posts found matching your search.</p>
                     </div>
                   )}
                 </div>
@@ -433,15 +435,15 @@ export default function BlogPage() {
 
                 {/* Newsletter */}
                 <div className="mt-10 sm:mt-12 rounded-3xl border border-white/10 bg-white/5 backdrop-blur p-6 sm:p-8 text-center shadow-lg">
-                  <h2 className="text-xl sm:text-2xl font-bold text-white">Join Our Newsletter</h2>
-                  <p className="mt-2 text-white/70 text-sm sm:text-base">
+                  <h2 className="text-xl sm:text-2xl font-bold text-black">Join Our Newsletter</h2>
+                  <p className="mt-2 text-black/70 text-sm sm:text-base">
                     Subscribe and receive the latest updates about our services and tips.
                   </p>
                   <div className="mt-6 flex flex-col sm:flex-row gap-3 justify-center">
                     <input
                       type="email"
                       placeholder="Enter your email"
-                      className="w-full sm:w-[360px] rounded-2xl border border-white/10 bg-white/5 px-4 py-3 text-white placeholder:text-white/50 outline-none focus:border-indigo-400/60"
+                      className="w-full sm:w-[360px] rounded-2xl border border-white/10 bg-white/5 px-4 py-3 text-black placeholder:text-black/50 shadow outline-none focus:border-indigo-400/60"
                     />
                     <button
                       type="button"
@@ -459,7 +461,7 @@ export default function BlogPage() {
           <aside className="lg:col-span-4 order-2 lg:order-none space-y-6 lg:sticky lg:top-[110px] h-fit">
             {recentPosts.length > 0 && (
               <div className="rounded-3xl border border-white/10 bg-white/5 backdrop-blur p-6 shadow-lg">
-                <h3 className="text-lg font-bold text-white">Recent Posts</h3>
+                <h3 className="text-lg font-bold text-black">Recent Posts</h3>
                 <div className="mt-5 space-y-4">
                   {recentPosts.map((p) => (
                     <button
@@ -474,8 +476,8 @@ export default function BlogPage() {
                         onError={handleImgError}
                       />
                       <div className="min-w-0">
-                        <p className="text-sm font-semibold text-white line-clamp-2">{p.title}</p>
-                        <p className="text-xs text-white/60 mt-1">{p.date}</p>
+                        <p className="text-sm font-semibold text-black line-clamp-2">{p.title}</p>
+                        <p className="text-xs text-black/60 mt-1">{p.date}</p>
                       </div>
                     </button>
                   ))}
@@ -485,18 +487,18 @@ export default function BlogPage() {
 
             {categories.length > 0 && (
               <div className="rounded-3xl border border-white/10 bg-white/5 backdrop-blur p-6 shadow-lg">
-                <h3 className="text-lg font-bold text-white">Categories</h3>
+                <h3 className="text-lg font-bold text-black">Categories</h3>
                 <div className="mt-4 space-y-2">
                   <button
                     onClick={() => handleCategory("all")}
                     className={`w-full flex items-center justify-between rounded-2xl border px-4 py-3 transition ${
                       selectedCategory === "all"
-                        ? "border-indigo-400/60 bg-indigo-500/20 text-white"
-                        : "border-white/10 bg-white/5 text-white/75 hover:bg-white/10"
+                        ? "border-indigo-400/60 bg-indigo-500/20 text-black"
+                        : "border-white/10 bg-white/5 text-black/75 hover:bg-white/10"
                     }`}
                   >
                     <span>All Categories</span>
-                    <span className="text-white/60">{blogPosts.length}</span>
+                    <span className="text-black/60">{blogPosts.length}</span>
                   </button>
 
                   {categories.map((c) => (
@@ -505,12 +507,12 @@ export default function BlogPage() {
                       onClick={() => handleCategory(c.name)}
                       className={`w-full flex items-center justify-between rounded-2xl border px-4 py-3 transition ${
                         selectedCategory === c.name
-                          ? "border-indigo-400/60 bg-indigo-500/20 text-white"
-                          : "border-white/10 bg-white/5 text-white/75 hover:bg-white/10"
+                          ? "border-indigo-400/60 bg-indigo-500/20 text-black"
+                          : "border-white/10 bg-white/5 text-black/75 hover:bg-white/10"
                       }`}
                     >
                       <span>{c.name}</span>
-                      <span className="text-white/60">{c.count}</span>
+                      <span className="text-black/60">{c.count}</span>
                     </button>
                   ))}
                 </div>
@@ -518,13 +520,13 @@ export default function BlogPage() {
             )}
 
             <div className="rounded-3xl border border-white/10 bg-white/5 backdrop-blur p-6 shadow-lg">
-              <h3 className="text-lg font-bold text-white">Tags</h3>
+              <h3 className="text-lg font-bold text-black">Tags</h3>
               <div className="mt-4 flex flex-wrap gap-2">
                 {allTags.map((tag) => (
                   <button
                     key={tag}
                     onClick={() => handleTagClick(tag)}
-                    className="px-3 py-1.5 rounded-full text-sm border border-white/10 bg-white/5 text-white/75 hover:bg-white/10 transition"
+                    className="px-3 py-1.5 rounded-full text-sm border border-white/10 bg-white/5 text-black/75 hover:bg-white/10 transition"
                   >
                     {tag}
                   </button>

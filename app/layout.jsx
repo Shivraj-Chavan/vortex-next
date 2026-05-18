@@ -270,7 +270,7 @@ export default function RootLayout({ children }) {
           overflow-x-hidden
         `}
       >
-        <ThemeProvider>
+        {/* <ThemeProvider> */}
 
           {/* LIGHT GRID */}
           <div
@@ -313,7 +313,7 @@ export default function RootLayout({ children }) {
             {children}
           </div>
 
-        </ThemeProvider>
+        {/* </ThemeProvider> */}
       </body>
     </html>
   );

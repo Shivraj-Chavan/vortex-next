@@ -5,6 +5,7 @@ import { useState, useEffect } from 'react';
 import { fetchBlogs, createBlog, updateBlog, deleteBlog } from './.././../../lib/api.js';
 import { getImageUrl, FALLBACK_IMAGE } from './../../../lib/imageUtils.js';
 import toast from 'react-hot-toast';
+import TipTapEditor from '../../(panel)/components/TipTapEditor.jsx';
 
 export default function BlogsPage() {
   const [searchQuery, setSearchQuery] = useState('');
@@ -87,6 +88,14 @@ export default function BlogsPage() {
     setEditMode(false);
     setSelectedBlogId(null);
   };
+
+    // Handle input change
+    const handleChange = (e) => {
+      setFormData({
+        ...form,
+        [e.target.name]: e.target.value,
+      });
+    };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -302,6 +311,7 @@ export default function BlogsPage() {
         </div>
       )}
 
+{/* View Modal */}
       {showModal && (
         <div className="fixed inset-0 z-[100] flex items-center justify-center p-4 bg-black/50 backdrop-blur-sm">
           <div className="bg-white dark:bg-gray-900 rounded-2xl shadow-2xl w-full max-w-2xl max-h-[90vh] overflow-y-auto">
@@ -362,9 +372,12 @@ export default function BlogsPage() {
               </div>
               <div>
                 <label className="block text-sm font-semibold text-gray-700 dark:text-gray-300 mb-2">Content *</label>
-                <textarea name="content" value={formData.content} onChange={handleInputChange} required disabled={submitLoading} rows={6}
-                  className="w-full px-4 py-3 bg-gray-50 dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-500 dark:text-white resize-none disabled:opacity-50"
-                  placeholder="Write your post content here..." />
+                <TipTapEditor
+                  content={formData.content}
+                  setContent={(value) =>
+                    setFormData({ ...formData, content: value })
+                  }
+                />
               </div>
               <div className="flex gap-3 pt-4">
                 <button type="button" onClick={() => { setShowModal(false); resetForm(); }} disabled={submitLoading}
@@ -382,7 +395,7 @@ export default function BlogsPage() {
           </div>
         </div>
       )}
-
+{/* view modal */}
 {selectedBlog && (
   <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/50 backdrop-blur-sm px-4">
     <div className="bg-white dark:bg-gray-900 w-full max-w-3xl rounded-2xl shadow-xl max-h-[90vh] overflow-y-auto relative">

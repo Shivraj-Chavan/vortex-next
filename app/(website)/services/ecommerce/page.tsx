@@ -14,37 +14,37 @@ import {
 export default function EcommercePage() {
   const features = [
     {
-      icon: <ShoppingCart className="w-10 h-10 text-blue-400" />,
+      icon: <ShoppingCart className="w-10 h-10 text-indigo-600" />,
       title: "Product Management",
       description:
         "Easy-to-use admin panel for managing products, categories, inventory, and pricing with bulk operations.",
     },
     {
-      icon: <CreditCard className="w-10 h-10 text-green-400" />,
+      icon: <CreditCard className="w-10 h-10 text-green-600" />,
       title: "Secure Payments",
       description:
         "Integrate multiple payment gateways including Stripe, PayPal, and credit cards with PCI compliance.",
     },
     {
-      icon: <Truck className="w-10 h-10 text-purple-400" />,
+      icon: <Truck className="w-10 h-10 text-purple-600" />,
       title: "Shipping Integration",
       description:
         "Real-time shipping rates, order tracking, and integration with major carriers like FedEx and UPS.",
     },
     {
-      icon: <Shield className="w-10 h-10 text-red-400" />,
+      icon: <Shield className="w-10 h-10 text-red-600" />,
       title: "Security & SSL",
       description:
         "Enterprise-grade security with SSL certificates, fraud detection, and secure checkout processes.",
     },
     {
-      icon: <Smartphone className="w-10 h-10 text-yellow-400" />,
+      icon: <Smartphone className="w-10 h-10 text-yellow-600" />,
       title: "Mobile Responsive",
       description:
         "Fully responsive design optimized for mobile shopping with touch-friendly interfaces.",
     },
     {
-      icon: <Package className="w-10 h-10 text-indigo-400" />,
+      icon: <Package className="w-10 h-10 text-indigo-600" />,
       title: "Inventory Management",
       description:
         "Track stock levels, manage variants, automatic low-stock alerts, and multi-warehouse support.",
@@ -80,212 +80,170 @@ export default function EcommercePage() {
   ];
 
   return (
-    <div
-      className="min-h-screen transition-colors duration-300 pt-[88px] relative overflow-hidden
-        bg-[#0b0f1a]
-        bg-[linear-gradient(to_right,#ffffff0a_1px,transparent_1px),linear-gradient(to_bottom,#ffffff0a_1px,transparent_1px)]
-        bg-[size:24px_24px]"
-    >
-    
-      <div className="pointer-events-none absolute top-0 right-1/4 w-96 h-96 bg-gradient-to-br from-blue-500/15 to-purple-500/15 rounded-full blur-3xl" />
-      <div className="pointer-events-none absolute -bottom-24 left-1/4 w-96 h-96 bg-gradient-to-br from-indigo-500/10 to-blue-500/10 rounded-full blur-3xl" />
+    <div className="min-h-screen pt-[88px] relative overflow-hidden bg-white text-black">
 
-      
-      <section className="relative overflow-hidden pt-10 sm:pt-14 pb-16 sm:pb-20">
-        <div className="relative mx-auto w-full max-w-7xl px-4 sm:px-6 lg:px-8">
-          <div className="grid lg:grid-cols-2 gap-10 lg:gap-14 items-center">
+      {/* background glow */}
+      <div className="pointer-events-none absolute top-0 right-1/4 w-96 h-96 bg-indigo-200/40 rounded-full blur-3xl" />
+      <div className="pointer-events-none absolute -bottom-24 left-1/4 w-96 h-96 bg-blue-200/30 rounded-full blur-3xl" />
+
+      {/* HERO */}
+      <section className="relative pt-10 sm:pt-14 pb-16 sm:pb-20">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid lg:grid-cols-2 gap-10 items-center">
+
             <div className="space-y-6">
-              <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/5 backdrop-blur border border-white/10 shadow-sm">
-                <ShoppingCart className="w-4 h-4 text-blue-400" />
-                <span className="text-sm font-semibold text-blue-200">E-Commerce Solutions</span>
+              <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-indigo-50 border border-indigo-100">
+                <ShoppingCart className="w-4 h-4 text-indigo-600" />
+                <span className="text-sm font-semibold text-indigo-700">
+                  E-Commerce Solutions
+                </span>
               </div>
 
-              <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold leading-tight tracking-tight text-white">
+              <h1 className="text-3xl sm:text-5xl lg:text-6xl font-bold leading-tight">
                 Complete
                 <br />
-                <span className="bg-gradient-to-r from-blue-400 via-indigo-400 to-purple-400 bg-clip-text text-transparent">
+                <span className="text-transparent bg-clip-text bg-gradient-to-r from-indigo-600 to-blue-600">
                   E-Commerce
                 </span>
                 <br />
                 Development
               </h1>
 
-              <p className="text-base sm:text-lg text-gray-300 leading-relaxed max-w-xl">
-                Launch your online store with powerful e-commerce platforms. From product catalogs to
-                secure payments, we build complete solutions that drive sales and delight customers.
+              <p className="text-gray-700 text-base sm:text-lg max-w-xl">
+                Launch your online store with powerful e-commerce platforms.
+                From product catalogs to secure payments, we build complete solutions.
               </p>
 
-              <div className="flex flex-col sm:flex-row gap-3 sm:gap-4">
+              <div className="flex flex-col sm:flex-row gap-3">
                 <a
                   href="/#contact"
-                  className="inline-flex items-center justify-center gap-2 px-7 py-3.5 rounded-xl font-bold
-                    bg-gradient-to-r from-blue-600 to-indigo-600 text-white hover:from-blue-700 hover:to-indigo-700
-                    shadow-lg hover:scale-[1.02] transition-all"
+                  className="px-6 py-3 rounded-xl bg-indigo-600 text-white font-semibold hover:bg-indigo-700 transition flex items-center gap-2 justify-center"
                 >
-                  Get Started
-                  <ArrowRight className="w-5 h-5" />
+                  Get Started <ArrowRight className="w-5 h-5" />
                 </a>
 
                 <a
                   href="#stores"
-                  className="inline-flex items-center justify-center gap-2 px-7 py-3.5 rounded-xl font-bold
-                    border border-white/15 text-white/90 hover:bg-white/5 transition-all"
+                  className="px-6 py-3 rounded-xl border border-gray-300 font-semibold hover:bg-gray-100 transition text-center"
                 >
                   View Stores
                 </a>
               </div>
             </div>
 
+            {/* IMAGE */}
             <div className="relative">
-              <div className="absolute inset-0 bg-gradient-to-r from-blue-500 to-purple-500 rounded-3xl blur-3xl opacity-20" />
-              <div className="relative overflow-hidden rounded-3xl shadow-2xl border border-white/10 bg-white/5 backdrop-blur">
-                <img
-                  src="https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=1200&q=80"
-                  alt="E-Commerce"
-                  className="w-full h-[280px] sm:h-[360px] lg:h-[420px] object-cover"
-                />
-              </div>
+              <div className="absolute inset-0 bg-indigo-200 blur-3xl opacity-30 rounded-3xl" />
+              <img
+                src="https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=1200&q=80"
+                className="relative rounded-3xl shadow-xl w-full h-[260px] sm:h-[360px] lg:h-[420px] object-cover"
+              />
             </div>
           </div>
         </div>
       </section>
 
+      {/* FEATURES */}
+      <section className="py-16 sm:py-24">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <h2 className="text-2xl sm:text-4xl font-bold text-center mb-10 mt-10">
+            E-Commerce Features
+          </h2>
 
-      <section
-        id="features"
-        className="pt-20 sm:pt-24 pb-24 sm:pb-28 bg-transparent scroll-mt-[88px]"
-      >
-        <div className="mx-auto w-full max-w-7xl px-4 sm:px-6 lg:px-8 py-12">
-          <div className="text-center mb-12 sm:mb-16">
-            <h2 className="text-3xl sm:text-4xl font-bold text-white mb-3">E-Commerce Features</h2>
-            <p className="text-base sm:text-lg text-gray-300">
-              Everything you need to sell, scale, and retain customers
-            </p>
-          </div>
-
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
+          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
             {features.map((f, i) => (
               <div
                 key={i}
-                className="bg-white/5 backdrop-blur p-7 sm:p-8 rounded-2xl border border-white/10
-                  hover:border-blue-400/30 hover:shadow-lg transition-all"
+                className="p-6 sm:p-8 rounded-2xl border border-gray-200 hover:shadow-md transition bg-white"
               >
                 <div className="mb-4">{f.icon}</div>
-                <h3 className="text-xl font-bold text-white mb-3">{f.title}</h3>
-                <p className="text-gray-300 leading-relaxed">{f.description}</p>
+                <h3 className="text-xl font-bold mb-2">{f.title}</h3>
+                <p className="text-gray-600 text-sm sm:text-base">{f.description}</p>
               </div>
             ))}
           </div>
         </div>
       </section>
 
-     
-      <section
-        id="platforms"
-        className="pt-16 sm:pt-20 pb-24 sm:pb-28 bg-transparent scroll-mt-[88px]"
-      >
-        <div className="mx-auto w-full max-w-7xl px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-12 sm:mb-16">
-            <h2 className="mt-6 text-3xl sm:text-4xl font-bold text-white mb-3">
-              Platforms We Work With
-            </h2>
-            <p className="text-base sm:text-lg text-gray-300 max-w-2xl mx-auto">
-              We specialize in building custom e-commerce solutions on industry-leading platforms
-            </p>
-          </div>
+      {/* PLATFORMS */}
+      <section className="py-16">
+        <div className="max-w-7xl mx-auto px-4">
+          <h2 className="text-2xl sm:text-4xl font-bold text-center mb-10 mt-15">
+            Platforms We Work With
+          </h2>
 
-          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8">
+          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
             {platforms.map((p, i) => (
               <div
                 key={i}
-                className="bg-white/5 backdrop-blur p-7 sm:p-8 rounded-2xl border border-white/10 text-center
-                  hover:border-indigo-400/30 hover:shadow-lg hover:scale-[1.01] transition-all"
+                className="p-6 rounded-xl border border-gray-200 text-center hover:shadow-md transition"
               >
-                <h3 className="text-2xl font-extrabold mb-2 bg-gradient-to-r from-blue-400 to-indigo-400 bg-clip-text text-transparent">
-                  {p.name}
-                </h3>
-                <p className="text-gray-300">{p.desc}</p>
+                <h3 className="text-xl font-bold text-indigo-600">{p.name}</h3>
+                <p className="text-gray-600 text-sm">{p.desc}</p>
               </div>
             ))}
           </div>
         </div>
       </section>
 
-      <section
-        id="capabilities"
-        className="pt-28 sm:pt-32 pb-20 sm:pb-24 bg-transparent scroll-mt-[88px]"
-      >
-        <div className="mx-auto w-full max-w-7xl px-4 sm:px-6 lg:px-8 py-10">
-          <div className="text-center mb-12 sm:mb-16">
-            <h2 className="mt-6 text-3xl sm:text-4xl font-bold text-white mb-3">
-              Advanced E-Commerce Capabilities
-            </h2>
-            <p className="text-base sm:text-lg text-gray-300">
-              High-conversion features that increase revenue and retention
-            </p>
-          </div>
+      {/* ADVANCED */}
+      <section className="py-16">
+        <div className="max-w-5xl mx-auto px-4 mt-10">
+          <h2 className="text-2xl sm:text-4xl font-bold text-center mb-10">
+            Advanced Capabilities
+          </h2>
 
-          <div className="max-w-5xl mx-auto grid sm:grid-cols-2 gap-x-10 gap-y-5">
+          <div className="grid sm:grid-cols-2 gap-4">
             {advanced.map((item, i) => (
               <div key={i} className="flex items-start gap-3">
-                <CheckCircle2 className="w-5 h-5 text-blue-400 mt-0.5 flex-shrink-0" />
-                <span className="text-gray-200">{item}</span>
+                <CheckCircle2 className="w-5 h-5 text-indigo-600 mt-1" />
+                <span className="text-gray-700">{item}</span>
               </div>
             ))}
           </div>
         </div>
       </section>
 
-      
-      <section
-  id="stores"
-  className="pt-32 sm:pt-36 pb-20 sm:pb-24 bg-transparent scroll-mt-[88px]"
->
+      {/* STORIES */}
+      <section className="py-16">
+        <div className="max-w-7xl mx-auto px-4 mt-10 ">
+          <h2 className="text-2xl sm:text-4xl font-bold text-center mb-10">
+            Success Stories
+          </h2>
 
-        <div className="mx-auto w-full max-w-7xl px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-12 sm:mb-16">
-           <h2 className="mt-6 text-3xl sm:text-4xl font-bold text-white mb-3">
-  E-Commerce Success Stories
-</h2>
-
-            <p className="text-base sm:text-lg text-gray-300">
-              Real outcomes from stores we’ve helped grow
-            </p>
-          </div>
-
-          <div className="grid md:grid-cols-3 gap-6 sm:gap-8">
+          <div className="grid md:grid-cols-3 gap-6">
             {stories.map((s, i) => (
               <div
                 key={i}
-                className="rounded-3xl bg-gradient-to-r from-blue-600 via-indigo-600 to-purple-600
-                  text-white px-8 py-10 text-center shadow-xl border border-white/10"
+                className="p-8 rounded-2xl bg-indigo-50 border border-indigo-100 text-center"
               >
-                <div className="text-5xl font-extrabold mb-3">{s.revenue}</div>
-                <p className="text-xl mb-2">{s.metric}</p>
-                <p className="text-blue-100">{s.store}</p>
+                <div className="text-4xl font-bold text-indigo-600 mb-2">
+                  {s.revenue}
+                </div>
+                <p className="font-semibold">{s.metric}</p>
+                <p className="text-gray-600 text-sm">{s.store}</p>
               </div>
             ))}
           </div>
         </div>
       </section>
 
-    
-      <section className="py-14 sm:py-16 transition-colors">
-        <div className="mx-auto w-full max-w-7xl px-4 sm:px-6 lg:px-8">
-          <div className="mt-6 sm:mt-8 rounded-3xl bg-gradient-to-r from-blue-600 via-indigo-600 to-purple-600 text-white px-6 sm:px-10 py-12 sm:py-14 text-center shadow-xl">
-            <h2 className="text-3xl sm:text-4xl font-bold mb-4">
-              Ready to Launch Your Online Store?
+      {/* CTA */}
+      <section className="py-16">
+        <div className="max-w-5xl mx-auto px-4">
+          <div className="bg-indigo-600 text-white rounded-3xl p-10 text-center mt-10 mb-15">
+            <h2 className="text-3xl font-bold mb-4">
+              Ready to Launch Your Store?
             </h2>
-            <p className="text-base sm:text-lg mb-7 text-blue-100 max-w-2xl mx-auto">
+            <p className="mb-6 text-indigo-100">
               Start selling online with a powerful e-commerce platform
             </p>
 
             <a
               href="/#contact"
-              className="inline-flex items-center gap-2 px-8 py-4 rounded-xl font-bold bg-white text-blue-700 hover:bg-gray-100 shadow-lg hover:scale-[1.02] transition-all"
+              className="inline-flex items-center gap-2 px-6 py-3 bg-white text-indigo-700 rounded-xl font-semibold hover:bg-gray-100 transition"
             >
-              Start Your Store
-              <ArrowRight className="w-5 h-5" />
+              Start Your Store <ArrowRight className="w-5 h-5" />
             </a>
           </div>
         </div>

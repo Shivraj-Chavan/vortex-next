@@ -30,7 +30,7 @@
     "**/*.mts",
     "**/*.ts",
     "**/*.tsx"
-, "app/(website)/components/Footer.jsx", "app/(website)/components/ThemeToggle.jsx", "app/(website)/components/ThemeProvider.jsx", "app/(website)/page.jsx", "app/admin/(panel)/dashboard/page.jsx"  ],
+, "app/(website)/components/Footer.jsx", "app/(website)/components/ThemeToggle.jsx", "app/(website)/components/ThemeProvider.jsx", "app/(website)/page.jsx", "app/admin/(panel)/dashboard/page.jsx", "app/(website)/services/digital-marketing/page.jsx", "app/(website)/services/domain-hosting/page.tsx", "app/(website)/services/ecommerce/page.tsx"  ],
   "exclude": [
     "node_modules"
   ]

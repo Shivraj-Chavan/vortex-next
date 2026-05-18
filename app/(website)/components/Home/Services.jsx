@@ -25,36 +25,43 @@ const services = [
     title: "Mobile App Development",
     desc: "High-performance native and cross-platform mobile applications for iOS and Android.",
     icon: Smartphone,
-    gradient: "from-purple-500 to-pink-500",
+    gradient: "from-indigo-500 to-blue-500",
     link: "/services/mobile-app",
   },
   {
     title: "Web Design",
     desc: "Beautiful, intuitive and user-friendly interface designs that create exceptional experiences.",
     icon: Palette,
-    gradient: "from-blue-500 to-cyan-500",
+    gradient: "from-indigo-500 to-blue-500",
     link: "/services/web-design",
   },
   {
     title: "Digital Marketing",
     desc: "Complete SEO, social media marketing and branding strategies to grow your online presence.",
     icon: Megaphone,
-    gradient: "from-orange-500 to-red-500",
+    gradient: "from-indigo-500 to-blue-500",
     link: "/services/digital-marketing",
   },
   {
     title: "E-Commerce Solutions",
     desc: "Full-featured online stores with secure payment gateways, inventory management and analytics.",
     icon: ShoppingCart,
-    gradient: "from-green-500 to-emerald-500",
+    gradient: "from-indigo-500 to-blue-500",
     link: "/services/ecommerce",
   },
   {
     title: "Domain & Hosting",
     desc: "Reliable domain registration and scalable web hosting with 99.9% uptime guarantee.",
     icon: Server,
-    gradient: "from-violet-500 to-purple-500",
+    gradient: "from-indigo-500 to-blue-500",
     link: "/services/domain-hosting",
+  },
+  {
+    title: "Data Analysis",
+    desc: "Turn raw data into actionable insights with dashboards, reports, and analytics systems.",
+    icon: Server,
+    gradient: "from-indigo-500 to-blue-500",
+    link: "/services/data-analysis",
   },
 ];
 
@@ -86,17 +93,14 @@ export default function Services() {
   };
 
   const handleInputChange = (e) => {
-    setFormData({
-      ...formData,
-      [e.target.name]: e.target.value,
-    });
+    setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     setIsSubmitting(true);
 
-    await new Promise((resolve) => setTimeout(resolve, 1500));
+    await new Promise((resolve) => setTimeout(resolve, 1200));
 
     console.log("Enquiry submitted:", {
       service: selectedService?.title,
@@ -106,82 +110,80 @@ export default function Services() {
     setIsSubmitting(false);
     setSubmitSuccess(true);
 
-    setTimeout(() => {
-      closeModal();
-    }, 4000);
+    setTimeout(closeModal, 3000);
   };
 
   return (
     <>
+      {/* PAGE */}
       <section
         id="services"
-        className="relative bg-transparent text-white py-20"
+        className="relative bg-white text-black py-16 sm:py-20 overflow-hidden "
       >
-        {/* Glow Effects */}
-        <div className="pointer-events-none absolute  top-0 left-1/4 w-[500px] h-[500px] bg-indigo-500/10 rounded-full blur-[140px]" />
-        <div className="pointer-events-none absolute bottom-0 right-1/4 w-[500px] h-[500px] bg-blue-500/10 rounded-full blur-[140px]" />
+        {/* glow */}
+        <div className="absolute top-0 left-1/4 w-[400px] h-[400px] bg-indigo-200 blur-3xl opacity-40 rounded-full" />
+        <div className="absolute bottom-0 right-1/4 w-[400px] h-[400px] bg-blue-200 blur-3xl opacity-40 rounded-full" />
 
-        <div className="relative max-w-7xl mx-auto px-6 mt-15">
-          <div className="text-center mb-14 space-y-4">
-            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/10 border border-white/15 shadow-lg">
-              <Sparkles className="w-4 h-4 text-indigo-400 animate-pulse" />
-              <span className="text-sm font-semibold text-indigo-300">
+        <div className="relative max-w-7xl mx-auto px-4 sm:px-6">
+          {/* HEADER */}
+          <div className="text-center mb-12 space-y-4 mt-8">
+            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-indigo-50 border border-indigo-100">
+              <Sparkles className="w-4 h-4 text-indigo-500 animate-pulse" />
+              <span className="text-sm font-semibold text-indigo-600">
                 Our Services
               </span>
             </div>
 
-            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold leading-tight">
-              <span>Best Website Development</span>
+            <h2 className="text-3xl sm:text-5xl font-bold leading-tight">
+              Best Website Development
               <br />
-              <span className="bg-gradient-to-r from-indigo-400 via-purple-400 to-blue-400 bg-clip-text text-transparent">
-                Solutions to Achieve Business Goals
+              <span className="bg-gradient-to-r from-indigo-600 to-blue-600 bg-clip-text text-transparent">
+                Solutions for Business Growth
               </span>
             </h2>
 
-            <p className="text-gray-300 max-w-3xl mx-auto text-sm sm:text-base">
-              We provide end-to-end digital solutions with cutting-edge
-              technology to help your business grow and succeed online.
+            <p className="text-gray-600 max-w-2xl mx-auto">
+              End-to-end digital solutions to scale your business online.
             </p>
           </div>
 
-          {/* Cards */}
-          <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+          {/* CARDS */}
+          <div className="grid gap-6 grid-cols-2 sm:grid-cols-2 lg:grid-cols-3 mb-10">
             {services.map((service, i) => (
-              <div key={i} className="group relative">
+              <div
+                key={i}
+                className="group bg-white border border-gray-200 rounded-2xl p-6
+                hover:shadow-lg hover:-translate-y-1 transition"
+              >
                 <div
-                  className={`absolute inset-0 bg-gradient-to-r ${service.gradient} opacity-0 group-hover:opacity-10 rounded-3xl blur-xl transition duration-500`}
-                />
+                  className={`w-12 h-12 rounded-xl bg-gradient-to-r ${service.gradient}
+                  flex items-center justify-center text-white mb-4`}
+                >
+                  <service.icon className="w-6 h-6" />
+                </div>
 
-                <div className="relative bg-white/5 border border-white/10 backdrop-blur-xl rounded-3xl p-7 hover:scale-105 hover:shadow-2xl transition duration-500">
-                  <div
-                    className={`w-14 h-14 rounded-2xl bg-gradient-to-br ${service.gradient} flex items-center justify-center mb-5 shadow-lg`}
+                <h3 className="text-lg font-bold mb-2">
+                  {service.title}
+                </h3>
+
+                <p className="text-sm text-gray-600 mb-4">
+                  {service.desc}
+                </p>
+
+                <div className="flex justify-between items-center">
+                  <a
+                    href={service.link}
+                    className="text-sm text-indigo-600 font-semibold hover:underline"
                   >
-                    <service.icon className="w-7 h-7 text-white" />
-                  </div>
+                    Learn More →
+                  </a>
 
-                  <h3 className="text-lg font-bold mb-3">
-                    {service.title}
-                  </h3>
-
-                  <p className="text-sm text-gray-400 leading-relaxed mb-5">
-                    {service.desc}
-                  </p>
-
-                  <div className="flex items-center justify-between">
-                    <a
-                      href={service.link}
-                      className="text-sm font-semibold text-indigo-400 hover:underline"
-                    >
-                      Learn More →
-                    </a>
-
-                    <button
-                      onClick={() => openModal(service)}
-                      className={`px-4 py-2 text-xs font-semibold rounded-lg bg-gradient-to-r ${service.gradient} hover:scale-105 transition`}
-                    >
-                      Enquire
-                    </button>
-                  </div>
+                  <button
+                    onClick={() => openModal(service)}
+                    className={`px-3 py-2 text-xs rounded-lg text-white bg-gradient-to-r ${service.gradient}`}
+                  >
+                    Enquire
+                  </button>
                 </div>
               </div>
             ))}
@@ -193,79 +195,64 @@ export default function Services() {
       {isModalOpen && (
         <div className="fixed inset-0 z-50 flex items-center justify-center p-4">
           <div
-            className="absolute inset-0 bg-black/70 backdrop-blur-sm"
+            className="absolute inset-0 bg-black/40"
             onClick={closeModal}
           />
 
-          <div className="relative w-full max-w-lg bg-[#0f172a] border border-white/10 rounded-3xl p-8 shadow-2xl text-white">
+          <div className="relative w-full max-w-lg bg-white rounded-2xl p-6 shadow-xl text-black">
             <button
               onClick={closeModal}
-              className="absolute top-5 right-5 text-gray-400 hover:text-white"
+              className="absolute top-4 right-4 text-gray-500"
             >
               <X />
             </button>
 
             {submitSuccess ? (
               <div className="text-center py-10">
-                <h3 className="text-xl font-bold mb-3">
+                <h3 className="text-xl font-bold">
                   Enquiry Submitted!
                 </h3>
-                <p className="text-gray-400">
-                  We'll contact you shortly.
+                <p className="text-gray-500 mt-2">
+                  We will contact you soon.
                 </p>
               </div>
             ) : (
               <form onSubmit={handleSubmit} className="space-y-4">
-                <h3 className="text-xl font-bold mb-4">
-                  Enquire About {selectedService?.title}
+                <h3 className="text-xl font-bold mb-2">
+                  Enquire: {selectedService?.title}
                 </h3>
 
                 <input
-                  type="text"
                   name="name"
                   required
-                  placeholder="Full Name"
-                  value={formData.name}
+                  placeholder="Name"
                   onChange={handleInputChange}
-                  className="w-full px-4 py-3 rounded-xl bg-white/10 border border-white/10 focus:ring-2 focus:ring-indigo-500 outline-none"
+                  className="w-full p-3 border border-gray-200 rounded-lg"
                 />
 
                 <input
-                  type="email"
-                  name="email"
-                  placeholder="Email (Optional)"
-                  value={formData.email}
-                  onChange={handleInputChange}
-                  className="w-full px-4 py-3 rounded-xl bg-white/10 border border-white/10 focus:ring-2 focus:ring-indigo-500 outline-none"
-                />
-
-                <input
-                  type="tel"
                   name="phone"
                   required
-                  placeholder="Phone Number"
-                  value={formData.phone}
+                  placeholder="Phone"
                   onChange={handleInputChange}
-                  className="w-full px-4 py-3 rounded-xl bg-white/10 border border-white/10 focus:ring-2 focus:ring-indigo-500 outline-none"
+                  className="w-full p-3 border border-gray-200 rounded-lg"
                 />
 
                 <textarea
                   name="message"
                   required
-                  rows={4}
-                  placeholder="Your Message"
-                  value={formData.message}
+                  placeholder="Message"
                   onChange={handleInputChange}
-                  className="w-full px-4 py-3 rounded-xl bg-white/10 border border-white/10 focus:ring-2 focus:ring-indigo-500 outline-none resize-none"
+                  className="w-full p-3 border border-gray-200 rounded-lg"
                 />
 
                 <button
                   type="submit"
                   disabled={isSubmitting}
-                  className={`w-full py-3 rounded-xl font-bold bg-gradient-to-r ${selectedService?.gradient} hover:scale-105 transition flex items-center justify-center gap-2`}
+                  className={`w-full py-3 rounded-lg text-white bg-gradient-to-r ${selectedService?.gradient}`}
                 >
                   {isSubmitting ? "Sending..." : "Send Enquiry"}
-                  <Send className="w-4 h-4" />
+                  <Send className="inline w-4 h-4 ml-2" />
                 </button>
               </form>
             )}
